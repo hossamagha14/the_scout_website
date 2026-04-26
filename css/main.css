@@ -374,46 +374,60 @@ section {
     grid-template-columns: 1fr;
   }
 
-  /* Stacked header: S icon only, then a tidy link grid (no ragged flex-wrap) */
+  /*
+    Mobile: one short row — S icon + horizontally scrollable links.
+    Avoids a tall multi-line grid and the “orphan” full-width CTA line.
+  */
   .nav {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.75rem;
-    padding: 0.75rem 1.25rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.65rem;
+    padding: 0.45rem 0.75rem;
     min-height: 0;
   }
 
   .nav__brand {
-    align-self: flex-start;
+    flex-shrink: 0;
   }
 
   .nav > nav {
-    width: 100%;
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
   }
 
   .nav__links {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    justify-items: center;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
     align-items: center;
-    row-gap: 0.5rem;
-    column-gap: 0.75rem;
+    gap: 0 1.1rem;
     width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    padding: 0.2rem 0.15rem 0.35rem 0;
+    font-size: 0.8125rem;
+    letter-spacing: 0.01em;
+    /* Scrollbar hidden; still swipe / drag with finger. */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
 
-  .nav__links li:last-child {
-    grid-column: 1 / -1;
+  .nav__links::-webkit-scrollbar {
+    display: none;
   }
 
   .nav__links a {
-    display: inline-block;
-    padding: 0.2rem 0.35rem;
+    flex: 0 0 auto;
     white-space: nowrap;
+    padding: 0.4rem 0.05rem;
   }
 
   .hero {
-    min-height: calc(100vh - 10rem);
-    min-height: calc(100dvh - 10rem);
+    min-height: calc(100vh - 4.5rem);
+    min-height: calc(100dvh - 4.5rem);
   }
 }
 
