@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>The Scout — Football · Discovered</title>
+    <meta
+      name="description"
+      content="A football discovery platform: short video moments, real profiles, and a feed built for players, scouts, and clubs."
+    />
+    <meta property="og:title" content="The Scout — Football · Discovered" />
+    <meta
+      property="og:description"
+      content="Post your tape. Get discovered. The substitution-board brand for the modern pitch."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/svg+xml" href="assets/brand/icon_s_green.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&family=Syne:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <div class="pattern-layer" aria-hidden="true"></div>
+    <div class="glow-hero" aria-hidden="true"></div>
+
+    <header class="nav">
+      <a class="nav__brand" href="#top" aria-label="The Scout home">
+        <img
+          class="nav__icon"
+          src="assets/brand/icon_s_green.svg"
+          width="36"
+          height="36"
+          alt=""
+        />
+        <img
+          class="nav__wordmark"
+          src="assets/brand/wordmark_green.svg"
+          width="200"
+          height="28"
+          alt="The Scout"
+        />
+      </a>
+      <nav aria-label="Page">
+        <ul class="nav__links">
+          <li><a href="#story">Product</a></li>
+          <li><a href="#pillars">Story</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#ecosystem">Ecosystem</a></li>
+          <li><a href="#get-started">Get the app</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="top" class="wrap">
+      <section class="hero" aria-labelledby="hero-headline">
+        <p class="hero__eyebrow">Football · Discovered</p>
+        <img
+          class="hero__board"
+          src="assets/brand/mark_3d.svg"
+          width="400"
+          height="260"
+          alt="The Scout wordmark on a substitution board"
+        />
+        <h1 id="hero-headline" class="hero__headline">Your number’s up. Get on the board.</h1>
+        <p class="hero__sub">
+          Short video moments, real profiles, and a discovery feed for players and the people who
+          watch the pitch. Talent wins on tape—not on who you know.
+        </p>
+        <div class="hero__ctas">
+          <a class="btn btn--primary" href="#get-started">Get the app</a>
+          <a class="btn btn--ghost" href="#features">What it does</a>
+        </div>
+      </section>
+
+      <section id="story" aria-labelledby="story-title">
+        <h2 id="story-title" class="section__title">The pitch, reimagined as a board.</h2>
+        <p class="section__lede">
+          The Scout takes its visual language from the substitution board: dark surfaces, neon
+          green accent, a tiled “S” pattern, and type that feels stamped for match day. The app is
+          a place to post your best plays, build a profile, and be seen by scouts, clubs, and
+          other players—on mobile, with Firebase at the core.
+        </p>
+        <p class="section__lede" style="margin-top: -1rem">
+          Whether you are chasing your next step as a <strong>talent</strong> or evaluating form
+          as a <strong>club</strong> user, the same feed-first experience keeps the focus on
+          video and identity.
+        </p>
+        <div class="tech" role="list" aria-label="Stack highlights">
+          <span class="chip" role="listitem">Flutter</span>
+          <span class="chip" role="listitem">Firebase</span>
+          <span class="chip" role="listitem">Riverpod</span>
+          <span class="chip" role="listitem">GoRouter</span>
+        </div>
+      </section>
+
+      <section id="pillars" aria-labelledby="pillars-title">
+        <h2 id="pillars-title" class="section__title">Why it exists</h2>
+        <p class="section__lede">Three beats from the in-app story—same voice as onboarding.</p>
+        <div class="pillars">
+          <article class="pillar">
+            <p class="pillar__tag">Players</p>
+            <h3 class="pillar__title">Your number’s up.</h3>
+            <p>
+              Post short clips of your best moments. Goals, skills, training—your tape on a stage
+              built for football.
+            </p>
+            <img
+              class="pillar__art"
+              src="assets/brand/logo_app.svg"
+              width="200"
+              height="200"
+              alt=""
+            />
+          </article>
+          <article class="pillar">
+            <p class="pillar__tag">Clubs &amp; Scouts</p>
+            <h3 class="pillar__title">Subbed in.</h3>
+            <p>
+              Real scouts swipe through real plays. Talent rises by what you do on the pitch—not
+              by who you know.
+            </p>
+            <img
+              class="pillar__art"
+              src="assets/brand/mark_board.svg"
+              width="240"
+              height="140"
+              alt=""
+            />
+          </article>
+          <article class="pillar">
+            <p class="pillar__tag">Your shot</p>
+            <h3 class="pillar__title">Get on the board.</h3>
+            <p>
+              Get noticed, get scouted, take your chance. The Scout is your bridge from raw talent
+              to the next opportunity.
+            </p>
+            <img
+              class="pillar__art"
+              src="assets/brand/pitch_green.svg"
+              width="280"
+              height="160"
+              alt=""
+            />
+          </article>
+        </div>
+      </section>
+
+      <section id="features" aria-labelledby="features-title">
+        <h2 id="features-title" class="section__title">What’s in the app</h2>
+        <p class="section__lede">
+          A product snapshot—mapped to the current Flutter app structure, not a roadmap promise.
+        </p>
+        <div class="features">
+          <div class="feature">
+            <h3>Full-screen video feed</h3>
+            <p>
+              Vertical, TikTok-style feed of football clips, with profile access and share links
+              for public videos.
+            </p>
+          </div>
+          <div class="feature">
+            <h3>Player profiles &amp; media</h3>
+            <p>
+              Grids of your videos, saved posts, and scouted players; talent setup when your
+              profile needs completion.
+            </p>
+          </div>
+          <div class="feature">
+            <h3>Search &amp; discovery</h3>
+            <p>Find players in the community with filters aligned to the product’s feed.</p>
+          </div>
+          <div class="feature">
+            <h3>Scouting &amp; rankings</h3>
+            <p>Track who you are watching and how talent stacks in competitive lists.</p>
+          </div>
+          <div class="feature">
+            <h3>Social graph</h3>
+            <p>Follow other players; notifications when there is something to see.</p>
+          </div>
+          <div class="feature">
+            <h3>Sign-in &amp; roles</h3>
+            <p>Google and Apple where enabled; club flows sit alongside the main talent path.</p>
+          </div>
+          <div class="feature">
+            <h3>Safety &amp; moderation</h3>
+            <p>Reporting, blocking, and video moderation tools to keep the pitch clean.</p>
+          </div>
+          <div class="feature">
+            <h3>Push &amp; deep links</h3>
+            <p>Open shared clips from notifications with the same in-app experience.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="ecosystem" aria-labelledby="eco-title">
+        <h2 id="eco-title" class="section__title">Two entry points, one product</h2>
+        <p class="section__lede">Same dark theme and neon accent; flows tuned to the role you pick.</p>
+        <div class="dual">
+          <div class="panel">
+            <h3>Talent</h3>
+            <p>
+              Onboard with the board metaphor, sign in, complete profile setup if required, then
+              land on the home feed. Your content and stats live under one profile.
+            </p>
+          </div>
+          <div class="panel">
+            <h3>Club</h3>
+            <p>
+              Dedicated club sign-in path for organizations that use the same infrastructure—so
+              evaluation and content stay in the same universe as player-submitted video.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="get-started" aria-labelledby="get-title">
+        <h2 id="get-title" class="section__title">Get the app</h2>
+        <p class="section__lede">
+          Store links go here when you publish. Until then, this site is a portfolio placeholder
+          you can host for free on GitHub Pages.
+        </p>
+        <div class="stores" aria-label="App stores (coming soon)">
+          <span class="store-badge" title="Add App Store URL when available">App Store — soon</span>
+          <span class="store-badge" title="Add Google Play URL when available">Google Play — soon</span>
+        </div>
+        <p class="section__lede" style="margin-top: 1.5rem; margin-bottom: 0.5rem">
+          Questions or partnership:
+          <a href="mailto:support@thescout.app">support@thescout.app</a>
+        </p>
+      </section>
+
+      <footer>
+        <div class="row">
+          <p>
+            © <span id="y"></span> The Scout. Football · Discovered
+          </p>
+          <div class="legal" aria-label="Legal">
+            <a href="legal/privacy.html">Privacy</a>
+            <a href="legal/terms.html">Terms</a>
+            <a href="legal/support.html">Support &amp; account</a>
+          </div>
+        </div>
+        <p style="margin-top: 1rem; max-width: 48ch; font-size: 0.75rem; opacity: 0.85">
+          This page is a static marketing site. It does not connect to the production Firebase
+          project; app behavior is described for illustration.
+        </p>
+      </footer>
+    </main>
+    <script>
+      document.getElementById("y").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
