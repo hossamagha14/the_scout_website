@@ -244,6 +244,15 @@
       </footer>
     </main>
     <script>
+      (function redirectLegacyShareHash() {
+        // Legacy links used `/#/s/<shareId>`. Route them to the new static share page.
+        const hash = (window.location.hash || "").replace(/^#/, "");
+        const m = hash.match(/^\/?s\/([^/?#]+)/i);
+        if (!m) return;
+        const shareId = encodeURIComponent(decodeURIComponent(m[1]));
+        window.location.replace(`share/?shareId=${shareId}`);
+      })();
+
       document.getElementById("y").textContent = new Date().getFullYear();
     </script>
   </body>
