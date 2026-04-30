@@ -3,78 +3,128 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>The Scout - Shared Video</title>
+    <title>The Scout — Shared Video</title>
     <meta name="description" content="Watch a shared video from The Scout." />
+    <link rel="icon" type="image/svg+xml" href="../assets/brand/icon_s_green.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&family=Syne:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/main.css" />
     <style>
-      :root {
-        --bg: #0f1115;
-        --card: #171a20;
-        --text: #f4f6f8;
-        --muted: #a2a8b3;
-        --accent: #00d56f;
-      }
-      * { box-sizing: border-box; }
-      body {
-        margin: 0;
+      .share-page {
         min-height: 100vh;
-        font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif;
-        background: radial-gradient(circle at top, #1a1f28 0%, var(--bg) 45%);
-        color: var(--text);
-        display: grid;
-        place-items: center;
-        padding: 24px;
       }
-      .wrap {
-        width: min(980px, 100%);
+      .share-nav {
+        min-height: var(--nav-h);
       }
-      h1 {
-        margin: 0 0 14px;
-        font-size: clamp(22px, 2.8vw, 34px);
-        line-height: 1.15;
+      .share-main {
+        padding-top: 1.25rem;
       }
-      p {
-        margin: 0 0 14px;
-        color: var(--muted);
+      .share-hero {
+        text-align: center;
+        margin: 0 auto 1.25rem;
       }
-      .card {
-        border: 1px solid #2a2f3a;
-        border-radius: 18px;
-        background: linear-gradient(180deg, #1a1f27, var(--card));
+      .share-eyebrow {
+        margin: 0 0 0.5rem;
+        font-size: 0.6875rem;
+        font-weight: 800;
+        letter-spacing: 0.2em;
+        color: var(--accent);
+        text-transform: uppercase;
+      }
+      .share-title {
+        margin: 0;
+        font-family: var(--font-display);
+        font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+        letter-spacing: -0.02em;
+      }
+      .share-sub {
+        margin: 0.75rem auto 0;
+        max-width: 48ch;
+        color: var(--text-muted);
+      }
+      .share-card {
+        border: 1px solid rgba(94, 94, 94, 0.45);
+        border-radius: var(--radius);
         overflow: hidden;
-        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+        background: linear-gradient(180deg, rgba(53, 53, 53, 0.72), rgba(42, 42, 42, 0.9));
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.32);
+      }
+      .share-status-wrap {
+        padding: 1rem 1rem 0.35rem;
+      }
+      .share-status {
+        margin: 0;
+        color: var(--text-muted);
+        font-size: 0.95rem;
+      }
+      .share-status.error {
+        color: var(--danger);
       }
       video {
         width: 100%;
-        height: min(76vh, 820px);
+        max-height: 72vh;
+        min-height: 320px;
         background: #000;
         display: block;
       }
-      .status {
-        padding: 18px 16px 4px;
-        color: var(--muted);
-        font-size: 15px;
+      .share-meta {
+        margin: 0;
+        padding: 0.5rem 1rem 1rem;
+        font-size: 0.82rem;
+        color: var(--text-muted);
       }
-      .status.error { color: #ff7272; }
-      .meta {
-        padding: 0 16px 18px;
-        font-size: 13px;
-        color: #8f95a1;
+      .share-cta {
+        margin-top: 0.95rem;
+        display: flex;
+        gap: 0.75rem;
+        justify-content: center;
+        flex-wrap: wrap;
       }
-      a { color: var(--accent); text-decoration: none; }
-      a:hover { text-decoration: underline; }
     </style>
   </head>
-  <body>
-    <main class="wrap">
-      <h1>Shared video</h1>
-      <div class="card">
-        <p id="status" class="status">Loading video...</p>
+  <body class="share-page">
+    <div class="pattern-layer" aria-hidden="true"></div>
+    <div class="glow-hero" aria-hidden="true"></div>
+
+    <header class="nav share-nav">
+      <a class="nav__brand" href="../" aria-label="The Scout home">
+        <img class="nav__icon" src="../assets/brand/icon_s_green.svg" width="36" height="36" alt="" />
+      </a>
+      <nav aria-label="Page">
+        <ul class="nav__links">
+          <li><a href="../#top">Home</a></li>
+          <li><a href="../#features">Features</a></li>
+          <li><a href="../#get-started">Get the app</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="wrap share-main">
+      <section class="share-hero" aria-labelledby="share-title">
+        <p class="share-eyebrow">Football · Shared clip</p>
+        <h1 id="share-title" class="share-title">Shared video</h1>
+        <p class="share-sub">
+          Watch this moment from The Scout. Open the app to view the full profile, feed context,
+          and engagement details.
+        </p>
+      </section>
+
+      <section class="share-card">
+        <div class="share-status-wrap">
+          <p id="status" class="share-status">Loading video...</p>
+        </div>
         <video id="player" controls playsinline preload="metadata"></video>
-        <p id="meta" class="meta"></p>
-      </div>
-      <p style="margin-top: 14px;">
-        Open The Scout app for the full feed and profile context.
-      </p>
+        <p id="meta" class="share-meta"></p>
+      </section>
+
+      <section class="share-cta">
+        <a class="btn btn--primary" href="../#get-started">Get the app</a>
+        <a class="btn btn--ghost" href="../">Back to website</a>
+      </section>
     </main>
     <script>
       const PUBLIC_SHARE_API = "https://getpublicvideoshare-zw2nks6u2q-uc.a.run.app";
@@ -99,7 +149,7 @@
         if (!shareId) {
           status.textContent = "Missing share id.";
           status.classList.add("error");
-          meta.innerHTML = "Try opening a full link from the app share action.";
+          meta.textContent = "Try opening a full link from the app share action.";
           return;
         }
 
@@ -120,7 +170,7 @@
         } catch (err) {
           status.textContent = "This shared video is unavailable.";
           status.classList.add("error");
-          meta.innerHTML = `Share ID: ${shareId} · Error: ${String(err)}`;
+          meta.textContent = `Share ID: ${shareId} · Error: ${String(err)}`;
         }
       }
 
