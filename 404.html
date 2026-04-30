@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>The Scout — Shared video</title>
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+      body {
+        margin: 0;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background: #222;
+        color: #fff;
+      }
+      .wrap {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 20px 16px 36px;
+      }
+      h1 {
+        margin: 0 0 14px;
+        font-size: 24px;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+      .card {
+        background: #2a2a2a;
+        border: 1px solid #5e5e5e;
+        border-radius: 14px;
+        overflow: hidden;
+      }
+      video {
+        width: 100%;
+        max-height: 74vh;
+        background: #000;
+      }
+      .meta {
+        margin-top: 10px;
+        color: #b7b7b7;
+        font-size: 14px;
+      }
+      .buttons {
+        margin-top: 16px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      a.btn {
+        text-decoration: none;
+        font-weight: 700;
+        border-radius: 14px;
+        padding: 11px 16px;
+        font-size: 14px;
+      }
+      .primary {
+        background: #2def81;
+        color: #0a0a0a;
+      }
+      .secondary {
+        border: 1px solid #5e5e5e;
+        background: #353535;
+        color: #fff;
+      }
+      .note {
+        margin-top: 10px;
+        color: #8d8da0;
+        font-size: 12px;
+      }
+      .back {
+        display: inline-block;
+        margin-bottom: 12px;
+        font-size: 13px;
+        color: #b7b7b7;
+      }
+      .back a {
+        color: #2def81;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <p class="back"><a href="index.html">← The Scout</a> · <span>Football · Discovered</span></p>
+      <h1>Shared clip</h1>
+      <div class="card">
+        <video id="player" controls playsinline preload="metadata"></video>
+      </div>
+      <div class="meta" id="meta">Loading…</div>
+      <div class="buttons">
+        <a id="storeBtn" class="btn secondary" href="#" rel="noopener">Get the app</a>
+        <a class="btn primary" href="index.html">About The Scout</a>
+      </div>
+      <div class="note">Open the app for the best full experience.</div>
+    </div>
+
+    <script>
+      (function () {
+        const IOS_STORE_URL = "https://apps.apple.com/app/idREPLACE_WITH_APPLE_APP_ID";
+        const ANDROID_STORE_URL =
+          "https://play.google.com/store/apps/details?id=com.thescout.app";
+        const SHARE_LOOKUP_ENDPOINT =
+          "https://us-central1-the-scout-96ec9.cloudfunctions.net/getPublicVideoShare";
+
+        function parseShareId() {
+          const q = new URLSearchParams(window.location.search);
+          const fromQuery = String(q.get("shareId") || "").trim();
+          if (fromQuery) return fromQuery;
+          const pathParts = window.location.pathname.split("/").filter(Boolean);
+          const si = pathParts.indexOf("s");
+          if (si >= 0 && pathParts[si + 1]) {
+            return String(pathParts[si + 1] || "").trim();
+          }
+          return "";
+        }
+
+        const shareId = parseShareId();
+        const player = document.getElementById("player");
+        const meta = document.getElementById("meta");
+        const storeBtn = document.getElementById("storeBtn");
+
+        if (shareId) {
+          meta.textContent = "Shared video · " + shareId;
+        }
+
+        function hidePreview(message) {
+          player.style.display = "none";
+          meta.textContent = message;
+        }
+
+        async function fetchShare() {
+          const endpoint =
+            SHARE_LOOKUP_ENDPOINT + "?shareId=" + encodeURIComponent(shareId);
+          const response = await fetch(endpoint, { method: "GET" });
+          if (!response.ok) {
+            throw new Error("Share lookup failed");
+          }
+          return response.json();
+        }
+
+        async function setupPreview() {
+          if (!shareId) {
+            hidePreview("Invalid shared link. Open this page from a share, or go to the home page.");
+            return;
+          }
+          try {
+            const share = await fetchShare();
+            const downloadUrl = String(share && share.downloadUrl ? share.downloadUrl : "");
+            if (!downloadUrl) {
+              hidePreview("Video preview unavailable. Open in the app.");
+              return;
+            }
+            player.src = downloadUrl;
+            meta.textContent = "Shared video · " + shareId;
+          } catch (_) {
+            hidePreview("Video preview unavailable. Open in the app.");
+          }
+        }
+
+        setupPreview();
+
+        const ua = navigator.userAgent || "";
+        const isIOS = /iPhone|iPad|iPod/i.test(ua);
+        storeBtn.href = isIOS ? IOS_STORE_URL : ANDROID_STORE_URL;
+      })();
+    </script>
+  </body>
+</html>
