@@ -382,12 +382,10 @@ section {
   opacity: 0.6;
 }
 
-.pillar__tag {
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: var(--accent);
-  margin: 0 0 0.5rem;
+.pillar__tag.accent-pill {
+  margin: 0 0 0.75rem;
+  max-width: 100%;
+  text-align: center;
 }
 
 .pillar__title {
