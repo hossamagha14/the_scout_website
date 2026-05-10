@@ -15,7 +15,7 @@
     />
     <meta property="og:type" content="website" />
     <link rel="icon" type="image/svg+xml" href="assets/brand/icon_s_green.svg" />
-    <link rel="stylesheet" href="css/main.css?v=reveal-tune" />
+    <link rel="stylesheet" href="css/main.css?v=reveal-full-earlier" />
     <script>
       document.documentElement.classList.add("js");
     </script>
@@ -301,10 +301,9 @@
         const setRevealFromScroll = () => {
           if (reduceMotion) return;
           const vh = window.innerHeight || 1;
-          /* Wider band + higher fadeStart: appear earlier, ramp over more scroll (slower than tight band).
-             Mild gamma (<1) lifts mid-scroll opacity so blocks read fuller without hitting 1 sooner. */
+          /* fadeStart: when ramp begins (higher = earlier). fadeEnd: where linear hits 1 — higher = full opacity sooner (block need not scroll as far up). */
           const fadeStart = vh * 1.08;
-          const fadeEnd = vh * 0.22;
+          const fadeEnd = vh * 0.44;
           const span = Math.max(56, fadeStart - fadeEnd);
           const gamma = 0.84;
           reveals.forEach((el) => {
