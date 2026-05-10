@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex" />
-    <title>The Scout — Shared video</title>
+    <title>The Scout · Shared video</title>
     <style>
       :root {
         color-scheme: dark;
@@ -154,7 +154,7 @@
             }
             player.src = downloadUrl;
             meta.textContent = "Shared video · " + shareId;
-          } catch (_) {
+          } catch (err) {
             hidePreview("Video preview unavailable. Open in the app.");
           }
         }
