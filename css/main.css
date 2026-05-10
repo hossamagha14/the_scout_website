@@ -448,18 +448,6 @@ section {
   margin: 0 0 0.65rem;
 }
 
-.pillar__title::after,
-.panel h3::after,
-.feature h3::after {
-  content: "";
-  display: block;
-  width: 2.25rem;
-  height: 2px;
-  margin-top: 0.45rem;
-  border-radius: 2px;
-  background: linear-gradient(90deg, var(--accent), transparent);
-}
-
 /* Pillar labels use `<span class="accent-pill">` so this never hits the pill. */
 .pillar p {
   margin: 0;
@@ -492,7 +480,7 @@ section {
 .feature h3 {
   font-size: 0.95rem;
   font-weight: 700;
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.35rem;
   letter-spacing: 0.02em;
 }
 
