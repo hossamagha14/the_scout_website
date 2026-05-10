@@ -595,6 +595,57 @@ section {
   line-height: 1.58;
 }
 
+/* Non-interactive cards: slight lift + green hairline on hover */
+.vision-panel,
+.pillar,
+.feature,
+.panel {
+  cursor: default;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .pillar:hover,
+  .feature:hover,
+  .panel:hover {
+    transform: translateY(-3px);
+    border-color: rgba(45, 239, 129, 0.32);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.05),
+      0 0 0 1px rgba(45, 239, 129, 0.48),
+      0 14px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  .vision-panel:hover {
+    transform: translateY(-3px);
+    border-color: rgba(45, 239, 129, 0.34);
+    box-shadow:
+      0 0 0 1px rgba(45, 239, 129, 0.48),
+      0 18px 40px rgba(0, 0, 0, 0.32);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pillar:hover,
+  .feature:hover,
+  .panel:hover {
+    transform: none;
+    border-color: rgba(45, 239, 129, 0.28);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.035),
+      0 0 0 1px rgba(45, 239, 129, 0.42),
+      0 10px 24px rgba(0, 0, 0, 0.22);
+  }
+
+  .vision-panel:hover {
+    transform: none;
+    border-color: rgba(45, 239, 129, 0.3);
+    box-shadow:
+      0 0 0 1px rgba(45, 239, 129, 0.42),
+      0 14px 36px rgba(0, 0, 0, 0.28);
+  }
+}
+
 /* —— Tech strip —— */
 .tech {
   display: flex;
