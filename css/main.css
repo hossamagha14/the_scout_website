@@ -185,12 +185,14 @@ svg {
     transition: transform 0.12s ease-out;
   }
 
+  /* Opacity scrubbed from scroll via --reveal on each element (see index.html). */
   .js .scroll-reveal {
-    opacity: 0;
-    transition: opacity 1.15s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity: var(--reveal, 0);
   }
+}
 
-  .js .scroll-reveal.is-visible {
+@media (prefers-reduced-motion: reduce) {
+  .js .scroll-reveal {
     opacity: 1;
   }
 }
