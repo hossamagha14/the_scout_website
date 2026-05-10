@@ -210,7 +210,9 @@ svg {
 
 /* Neon pill: mono inside only (reference UI). Use sparingly. */
 .accent-pill {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   margin: 0;
   padding: 0.5rem 1.15rem;
   font-family: var(--font-mono);
@@ -237,7 +239,7 @@ svg {
 }
 
 .hero__vision .accent-pill {
-  margin-bottom: 0.85rem;
+  margin: 0 0 0.85rem;
 }
 
 .hero__vision-text {
@@ -382,10 +384,9 @@ section {
   opacity: 0.6;
 }
 
-.pillar__tag.accent-pill {
-  margin: 0 0 0.75rem;
-  max-width: 100%;
-  text-align: center;
+/* Same pill as hero “Our vision”; only spacing differs in context */
+.pillar > .accent-pill {
+  margin: 0 0 0.85rem;
 }
 
 .pillar__title {
