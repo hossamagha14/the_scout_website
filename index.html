@@ -15,7 +15,7 @@
     />
     <meta property="og:type" content="website" />
     <link rel="icon" type="image/svg+xml" href="assets/brand/icon_s_green.svg" />
-    <link rel="stylesheet" href="css/main.css?v=ft-nod" />
+    <link rel="stylesheet" href="css/main.css?v=reveal-tune" />
     <script>
       document.documentElement.classList.add("js");
     </script>
@@ -301,12 +301,16 @@
         const setRevealFromScroll = () => {
           if (reduceMotion) return;
           const vh = window.innerHeight || 1;
-          const fadeStart = vh * 0.96;
-          const fadeEnd = vh * 0.34;
-          const span = Math.max(48, fadeStart - fadeEnd);
+          /* Wider band + higher fadeStart: appear earlier, ramp over more scroll (slower than tight band).
+             Mild gamma (<1) lifts mid-scroll opacity so blocks read fuller without hitting 1 sooner. */
+          const fadeStart = vh * 1.08;
+          const fadeEnd = vh * 0.22;
+          const span = Math.max(56, fadeStart - fadeEnd);
+          const gamma = 0.84;
           reveals.forEach((el) => {
             const top = el.getBoundingClientRect().top;
-            const t = Math.min(1, Math.max(0, (fadeStart - top) / span));
+            const linear = Math.min(1, Math.max(0, (fadeStart - top) / span));
+            const t = Math.pow(linear, gamma);
             el.style.setProperty("--reveal", String(t));
           });
         };
