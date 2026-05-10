@@ -143,6 +143,7 @@ svg {
 
 /* —— Nav —— */
 .nav {
+  --scroll-progress: 0;
   position: sticky;
   top: 0;
   z-index: 100;
@@ -156,6 +157,48 @@ svg {
   border-bottom: 1px solid rgba(94, 94, 94, 0.35);
   background: color-mix(in srgb, var(--scaffold) 88%, transparent);
   backdrop-filter: blur(12px);
+}
+
+.nav__progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.nav__progress-bar {
+  display: block;
+  height: 100%;
+  width: 100%;
+  transform-origin: left center;
+  transform: scaleX(var(--scroll-progress, 0));
+  background: var(--accent);
+  opacity: 0.88;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .nav__progress-bar {
+    transition: transform 0.12s ease-out;
+  }
+
+  .js .scroll-reveal {
+    opacity: 0;
+    transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .js .scroll-reveal.is-visible {
+    opacity: 1;
+  }
+}
+
+@media print {
+  .scroll-reveal {
+    opacity: 1 !important;
+  }
 }
 
 .nav__brand {
