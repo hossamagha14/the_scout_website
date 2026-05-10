@@ -397,8 +397,8 @@ section {
   margin: 0 0 0.65rem;
 }
 
-/* Do not use `.pillar p` — it would override `.accent-pill` (color, size, mono). */
-.pillar p:not(.accent-pill) {
+/* Pillar labels use `<span class="accent-pill">` so this never hits the pill. */
+.pillar p {
   margin: 0;
   color: var(--text-muted);
   font-size: 0.95rem;
