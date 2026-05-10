@@ -260,6 +260,16 @@ svg {
   max-width: 20ch;
 }
 
+.hero__headline::after {
+  content: "";
+  display: block;
+  width: 3rem;
+  height: 3px;
+  margin: 0.75rem auto 0;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+}
+
 .hero__sub {
   color: var(--text-muted);
   font-size: 1.05rem;
@@ -340,7 +350,17 @@ section {
   font-size: clamp(1.5rem, 3vw, 1.85rem);
   font-weight: 700;
   letter-spacing: -0.02em;
-  margin: 0 0 0.5rem;
+  margin: 0 0 1rem;
+}
+
+.section__title::after {
+  content: "";
+  display: block;
+  width: 3rem;
+  height: 3px;
+  margin-top: 0.65rem;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--accent), transparent);
 }
 
 .section__lede {
@@ -356,20 +376,6 @@ section {
 }
 
 /* —— Our vision (statement panel) —— */
-.vision-section__title {
-  margin: 0 0 1.1rem;
-}
-
-.vision-section__title::after {
-  content: "";
-  display: block;
-  width: 3rem;
-  height: 3px;
-  margin-top: 0.65rem;
-  border-radius: 2px;
-  background: linear-gradient(90deg, var(--accent), transparent);
-}
-
 .vision-panel {
   max-width: 62ch;
   margin: 0;
@@ -442,6 +448,18 @@ section {
   margin: 0 0 0.65rem;
 }
 
+.pillar__title::after,
+.panel h3::after,
+.feature h3::after {
+  content: "";
+  display: block;
+  width: 2.25rem;
+  height: 2px;
+  margin-top: 0.45rem;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+}
+
 /* Pillar labels use `<span class="accent-pill">` so this never hits the pill. */
 .pillar p {
   margin: 0;
@@ -474,7 +492,7 @@ section {
 .feature h3 {
   font-size: 0.95rem;
   font-weight: 700;
-  margin: 0 0 0.35rem;
+  margin: 0 0 0.5rem;
   letter-spacing: 0.02em;
 }
 
