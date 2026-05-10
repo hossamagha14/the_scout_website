@@ -355,10 +355,51 @@ section {
   font-weight: 600;
 }
 
-/* Long-form vision copy: same voice as former hero block, aligned with other sections */
-.vision__lede {
-  line-height: 1.65;
+/* —— Our vision (statement panel) —— */
+.vision-section__title {
+  margin: 0 0 1.1rem;
+}
+
+.vision-section__title::after {
+  content: "";
+  display: block;
+  width: 3rem;
+  height: 3px;
+  margin-top: 0.65rem;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+}
+
+.vision-panel {
   max-width: 62ch;
+  margin: 0;
+  padding: 1.55rem 1.5rem 1.55rem 1.45rem;
+  border-radius: var(--radius);
+  border: 1px solid rgba(94, 94, 94, 0.38);
+  border-left: 4px solid var(--accent);
+  background:
+    linear-gradient(145deg, rgba(45, 239, 129, 0.07) 0%, transparent 42%),
+    linear-gradient(180deg, var(--surface) 0%, #262626 100%);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.28);
+}
+
+.vision-panel__text {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: clamp(1rem, 2.3vw, 1.09rem);
+  line-height: 1.68;
+  font-weight: 400;
+}
+
+.vision-panel__text strong {
+  color: color-mix(in srgb, var(--text) 82%, var(--accent) 18%);
+  font-weight: 600;
+}
+
+@media (max-width: 720px) {
+  .vision-panel {
+    padding: 1.25rem 1.15rem 1.25rem 1.1rem;
+  }
 }
 
 /* —— Pillars (onboarding echo) —— */
