@@ -15,7 +15,7 @@
     />
     <meta property="og:type" content="website" />
     <link rel="icon" type="image/svg+xml" href="assets/brand/icon_s_green.svg" />
-    <link rel="stylesheet" href="css/main.css?v=pillar-label-span" />
+    <link rel="stylesheet" href="css/main.css?v=board-motion" />
   </head>
   <body>
     <div class="pattern-layer" aria-hidden="true"></div>
@@ -246,6 +246,33 @@
       })();
 
       document.getElementById("y").textContent = new Date().getFullYear();
+
+      (function sectionTitleBoardLine() {
+        if (!window.IntersectionObserver) {
+          document.querySelectorAll(".section__title").forEach((el) => {
+            el.classList.add("section-title--visible");
+          });
+          return;
+        }
+        var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        if (reduce) {
+          document.querySelectorAll(".section__title").forEach((el) => {
+            el.classList.add("section-title--visible");
+          });
+          return;
+        }
+        var io = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) entry.target.classList.add("section-title--visible");
+            });
+          },
+          { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+        );
+        document.querySelectorAll(".section__title").forEach(function (el) {
+          io.observe(el);
+        });
+      })();
     </script>
   </body>
 </html>
