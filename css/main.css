@@ -93,6 +93,11 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+::selection {
+  background: rgba(45, 239, 129, 0.28);
+  color: var(--text);
+}
+
 a {
   color: var(--accent);
   text-decoration: none;
@@ -181,11 +186,18 @@ svg {
 .nav__links a {
   color: var(--text-muted);
   text-decoration: none;
+  transition: color 0.18s ease;
 }
 
 .nav__links a:hover {
   color: var(--accent);
   text-decoration: none;
+}
+
+.nav__links a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 /* —— Layout —— */
@@ -230,30 +242,6 @@ svg {
 
 .hero__eyebrow.accent-pill {
   margin: 0 0 1.25rem;
-}
-
-.hero__vision {
-  max-width: 40rem;
-  margin: 0 auto 1.75rem;
-  text-align: center;
-}
-
-.hero__vision .accent-pill {
-  margin: 0 0 0.85rem;
-}
-
-.hero__vision-text {
-  margin: 0;
-  font-family: var(--font-body);
-  font-size: clamp(0.95rem, 2.8vw, 1.0625rem);
-  font-weight: 400;
-  line-height: 1.65;
-  color: var(--text-muted);
-}
-
-.hero__vision-text strong {
-  color: color-mix(in srgb, var(--text) 92%, var(--accent) 8%);
-  font-weight: 600;
 }
 
 .hero__board {
@@ -303,6 +291,11 @@ svg {
   border-radius: 14px;
   cursor: pointer;
   transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
 .btn:disabled,
@@ -355,6 +348,17 @@ section {
   max-width: 60ch;
   margin: 0 0 2rem;
   font-size: 1.05rem;
+}
+
+.section__lede strong {
+  color: color-mix(in srgb, var(--text) 88%, var(--accent) 12%);
+  font-weight: 600;
+}
+
+/* Long-form vision copy: same voice as former hero block, aligned with other sections */
+.vision__lede {
+  line-height: 1.65;
+  max-width: 62ch;
 }
 
 /* —— Pillars (onboarding echo) —— */
@@ -599,6 +603,19 @@ footer a {
 footer a:hover {
   color: var(--accent);
   text-decoration: none;
+}
+
+footer a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+main .section__lede a:focus-visible,
+main .hero__sub a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 3px;
 }
 
 footer .legal {
