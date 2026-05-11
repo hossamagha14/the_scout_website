@@ -74,6 +74,7 @@ html {
   html {
     scroll-behavior: auto;
   }
+
   *,
   *::before,
   *::after {
@@ -134,11 +135,9 @@ svg {
   height: 70vh;
   z-index: 0;
   pointer-events: none;
-  background: radial-gradient(
-    ellipse 80% 60% at 50% 0%,
-    rgba(45, 239, 129, 0.12),
-    transparent 55%
-  );
+  background: radial-gradient(ellipse 80% 60% at 50% 0%,
+      rgba(45, 239, 129, 0.12),
+      transparent 55%);
 }
 
 /* —— Nav —— */
@@ -223,14 +222,17 @@ svg {
     opacity: 0;
     transform: translateY(3px);
   }
+
   14% {
     opacity: 0.52;
     transform: translateY(0);
   }
+
   72% {
     opacity: 0.46;
     transform: translateY(0);
   }
+
   100% {
     opacity: 0;
     transform: translateY(0);
@@ -509,7 +511,7 @@ section {
 .tape-showcase__stage {
   position: relative;
   width: 100%;
-  max-width: min(376px, 94vw);
+  max-width: min(348px, 92vw);
   margin-inline: auto;
 }
 
@@ -527,12 +529,12 @@ section {
 .tape-notif {
   position: absolute;
   z-index: 2;
-  top: 3.25%;
-  right: max(-26%, -1.85rem);
-  width: min(272px, 90vw);
+  top: 5.5%;
+  right: max(-8%, -0.95rem);
+  width: min(256px, 88vw);
   pointer-events: none;
   filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.5));
-  transform: translate3d(calc((1 - var(--notif, 0)) * min(100vw, 520px)), 0, 0);
+  transform: translate3d(calc((1 - var(--notif, 0)) * min(96vw, 480px)), 0, 0);
 }
 
 .tape-notif__img {
@@ -543,12 +545,12 @@ section {
 
 @media (min-width: 900px) {
   .tape-showcase__stage {
-    max-width: min(396px, 38vw);
+    max-width: min(368px, 36vw);
   }
 
   .tape-notif {
-    width: min(296px, 32vw);
-    right: max(-30%, -2.1rem);
+    width: min(276px, 30vw);
+    right: max(-10%, -1.15rem);
   }
 }
 
@@ -606,7 +608,7 @@ section {
 }
 
 /* Same pill as hero “Our vision”; only spacing differs in context */
-.pillar > .accent-pill {
+.pillar>.accent-pill {
   margin: 0 0 0.85rem;
 }
 
@@ -705,7 +707,7 @@ section {
     flex-shrink: 0;
   }
 
-  .nav > nav {
+  .nav>nav {
     flex: 1;
     min-width: 0;
     overflow: hidden;
@@ -782,6 +784,7 @@ section {
 }
 
 @media (prefers-reduced-motion: no-preference) {
+
   .pillar:hover,
   .feature:hover,
   .panel:hover {
@@ -803,6 +806,7 @@ section {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .pillar:hover,
   .feature:hover,
   .panel:hover {
