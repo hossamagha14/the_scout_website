@@ -496,6 +496,62 @@ section {
   font-weight: 600;
 }
 
+/* —— Tape showcase (phone + scroll-scrubbed scout notification) —— */
+.tape-showcase {
+  --notif: 0;
+  overflow-x: clip;
+}
+
+.tape-showcase__visual {
+  margin-top: 0.25rem;
+}
+
+.tape-showcase__stage {
+  position: relative;
+  width: 100%;
+  max-width: min(302px, 88vw);
+  margin-inline: auto;
+}
+
+.tape-phone {
+  margin: 0;
+}
+
+.tape-phone__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 2.35rem;
+}
+
+.tape-notif {
+  position: absolute;
+  z-index: 2;
+  top: 5.5%;
+  right: max(-4%, -0.85rem);
+  width: min(228px, 82vw);
+  pointer-events: none;
+  filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.5));
+  transform: translate3d(calc((1 - var(--notif, 0)) * min(92vw, 440px)), 0, 0);
+}
+
+.tape-notif__img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+@media (min-width: 900px) {
+  .tape-showcase__stage {
+    max-width: min(318px, 32vw);
+  }
+
+  .tape-notif {
+    width: min(240px, 26vw);
+    right: max(-6%, -1rem);
+  }
+}
+
 /* —— Our vision (statement panel) —— */
 .vision-panel {
   max-width: 62ch;
