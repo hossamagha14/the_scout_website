@@ -509,7 +509,7 @@ section {
 .tape-showcase__stage {
   position: relative;
   width: 100%;
-  max-width: min(348px, 92vw);
+  max-width: min(376px, 94vw);
   margin-inline: auto;
 }
 
@@ -527,12 +527,12 @@ section {
 .tape-notif {
   position: absolute;
   z-index: 2;
-  top: 5.5%;
-  right: max(-12%, -1.2rem);
-  width: min(256px, 88vw);
+  top: 3.25%;
+  right: max(-26%, -1.85rem);
+  width: min(272px, 90vw);
   pointer-events: none;
   filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.5));
-  transform: translate3d(calc((1 - var(--notif, 0)) * min(96vw, 480px)), 0, 0);
+  transform: translate3d(calc((1 - var(--notif, 0)) * min(100vw, 520px)), 0, 0);
 }
 
 .tape-notif__img {
@@ -543,12 +543,12 @@ section {
 
 @media (min-width: 900px) {
   .tape-showcase__stage {
-    max-width: min(368px, 36vw);
+    max-width: min(396px, 38vw);
   }
 
   .tape-notif {
-    width: min(276px, 30vw);
-    right: max(-14%, -1.4rem);
+    width: min(296px, 32vw);
+    right: max(-30%, -2.1rem);
   }
 }
 
