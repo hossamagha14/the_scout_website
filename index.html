@@ -15,7 +15,7 @@
     />
     <meta property="og:type" content="website" />
     <link rel="icon" type="image/svg+xml" href="assets/brand/icon_s_green.svg" />
-    <link rel="stylesheet" href="css/main.css?v=scout-asset" />
+    <link rel="stylesheet" href="css/main.css?v=steps-scout-stack" />
     <script>
       document.documentElement.classList.add("js");
     </script>
@@ -58,6 +58,7 @@
       </a>
       <nav aria-label="Page">
         <ul class="nav__links">
+          <li><a href="#steps">How it works</a></li>
           <li><a href="#vision">Our Vision</a></li>
           <li><a href="#pillars">Story</a></li>
           <li><a href="#features">Features</a></li>
@@ -87,29 +88,113 @@
         </div>
       </section>
 
-      <section id="tape" class="tape-showcase" aria-labelledby="tape-title">
-        <h2 id="tape-title" class="section__title scroll-reveal">The feed is the stage</h2>
+      <section id="steps" class="app-steps" aria-labelledby="steps-title">
+        <h2 id="steps-title" class="section__title scroll-reveal">How it works</h2>
         <p class="section__lede scroll-reveal">
-          Players post quick clips of goals, skills, and training. Clubs discover from real tape,
-          then the moment lands as a notification on the player’s side.
+          Three moves from first open to the top of the board. Same app, built for football.
+        </p>
+
+        <article class="app-step scroll-reveal">
+          <div class="app-step__copy">
+            <span class="app-step__num" aria-hidden="true">1</span>
+            <h3 class="app-step__title">Sign up</h3>
+            <p class="app-step__text">
+              Create your account with Google or Apple, then you are in the tunnel with everyone
+              else who lives on the ball.
+            </p>
+          </div>
+          <figure class="app-step__figure">
+            <img
+              class="app-step__img"
+              src="assets/sign%20up%20screenshot.png?v=1"
+              width="750"
+              height="1624"
+              alt="The Scout sign in screen with Continue with Google and Continue with Apple."
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+        </article>
+
+        <article class="app-step scroll-reveal">
+          <div class="app-step__copy">
+            <span class="app-step__num" aria-hidden="true">2</span>
+            <h3 class="app-step__title">Drop your tape</h3>
+            <p class="app-step__text">
+              Upload short clips of goals, skills, and training so your best moments sit on the feed
+              where scouts actually watch.
+            </p>
+          </div>
+          <figure class="app-step__figure">
+            <img
+              class="app-step__img"
+              src="assets/video%20screenshot.png?v=1"
+              width="750"
+              height="1624"
+              alt="The Scout feed with a full screen clip and engagement actions."
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+        </article>
+
+        <article class="app-step scroll-reveal">
+          <div class="app-step__copy">
+            <span class="app-step__num" aria-hidden="true">3</span>
+            <h3 class="app-step__title">Climb the rankings</h3>
+            <p class="app-step__text">
+              Attention and saves move you up the board. Push higher in ranking until you are the
+              name everyone is tracking.
+            </p>
+          </div>
+          <figure class="app-step__figure">
+            <img
+              class="app-step__img"
+              src="assets/Ranking%20screenshot.png?v=1"
+              width="750"
+              height="1624"
+              alt="The Scout rankings screen with top three spotlight and leaderboard list."
+              loading="lazy"
+              decoding="async"
+            />
+          </figure>
+        </article>
+      </section>
+
+      <section id="tape" class="tape-showcase tape-showcase--scout" aria-labelledby="tape-title">
+        <h2 id="tape-title" class="section__title scroll-reveal">The moment you get scouted</h2>
+        <p class="section__lede scroll-reveal">
+          You put real tape on the feed. A club moves on you. Then the alert lands so you know the
+          door opened.
         </p>
         <div class="tape-showcase__visual">
-          <div class="tape-showcase__stage">
-            <figure class="tape-phone">
+          <div class="tape-showcase__stage tape-scout-stack" id="tape-scout-stack">
+            <figure class="tape-scout-base">
               <img
                 class="tape-phone__img"
                 src="assets/scouting.png?v=scout-feed-2026-05"
                 width="780"
                 height="1688"
-                alt="The Scout app: full-screen feed with a Scout button and engagement actions on a clip."
+                alt="The Scout feed with Scout action on a clip."
                 loading="lazy"
                 decoding="async"
               />
             </figure>
-            <div class="tape-notif" id="tape-notif">
+            <figure class="tape-scout-club">
               <img
-                class="tape-notif__img"
-                src="assets/scouted.png"
+                class="tape-phone__img"
+                src="assets/club%20profile.png?v=1"
+                width="780"
+                height="1688"
+                alt="Club profile with Scouted players tab and a player row."
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+            <div class="tape-scout-alert">
+              <img
+                class="tape-scout-alert__img"
+                src="assets/scouted.png?v=1"
                 width="640"
                 height="240"
                 alt="In-app alert: You were scouted. Your Dream Team added you to their Scouted players."
@@ -347,25 +432,30 @@
           });
         };
 
-        const tape = document.querySelector(".tape-showcase");
-        const tapeNotif = document.getElementById("tape-notif");
-        const setTapeNotifProgress = () => {
-          if (!tape || !tapeNotif) return;
+        const tape = document.querySelector("#tape.tape-showcase--scout");
+        const setTapeStackProgress = () => {
+          if (!tape) return;
           if (reduceMotion) {
             const r = tape.getBoundingClientRect();
             const vh = window.innerHeight || 1;
             const inView = r.bottom > 0 && r.top < vh;
-            tape.style.setProperty("--notif", inView ? "1" : "0");
+            tape.style.setProperty("--tape-club", inView ? "1" : "0");
+            tape.style.setProperty("--tape-alert", inView ? "1" : "0");
             return;
           }
           const vh = window.innerHeight || 1;
-          const top = tape.getBoundingClientRect().top;
-          /* --notif 0 while rect.top > start. Lower start (fraction of vh) = slide begins later; 1.05*vh made motion start as soon as the block entered. */
-          const start = vh * 0.535;
-          const end = vh * 0.12;
-          const span = Math.max(120, start - end);
-          const linear = Math.min(1, Math.max(0, (start - top) / span));
-          tape.style.setProperty("--notif", String(Math.pow(linear, 0.92)));
+          const r = tape.getBoundingClientRect();
+          const top = r.top;
+          const h = Math.max(r.height, vh * 0.35);
+          const uStart = vh * 0.88;
+          const uEnd = -h * 0.32;
+          const span = Math.max(180, uStart - uEnd);
+          let u = (uStart - top) / span;
+          u = Math.min(1, Math.max(0, u));
+          const club = Math.min(1, Math.max(0, (u - 0.04) / 0.36));
+          const alert = Math.min(1, Math.max(0, (u - 0.34) / 0.44));
+          tape.style.setProperty("--tape-club", String(Math.pow(club, 0.94)));
+          tape.style.setProperty("--tape-alert", String(Math.pow(alert, 0.92)));
         };
 
         let ticking = 0;
@@ -373,7 +463,7 @@
           ticking = 0;
           const p = setProgress();
           setRevealFromScroll();
-          setTapeNotifProgress();
+          setTapeStackProgress();
           maybeFullTimeNod(p);
         };
 

@@ -498,24 +498,109 @@ section {
   font-weight: 600;
 }
 
-/* —— Tape showcase (phone + scroll-scrubbed scout notification) —— */
+/* —— How it works (onboarding mockups) —— */
+.app-step {
+  display: grid;
+  gap: 1.35rem;
+  align-items: start;
+  margin: 0 0 3.25rem;
+  padding-bottom: 0.25rem;
+}
+
+.app-step:last-of-type {
+  margin-bottom: 0;
+}
+
+.app-step__copy {
+  max-width: 52ch;
+}
+
+.app-step__num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  margin-bottom: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  border: 1px solid rgba(45, 239, 129, 0.45);
+  border-radius: 8px;
+  background: rgba(45, 239, 129, 0.08);
+}
+
+.app-step__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2.4vw, 1.35rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.45rem;
+  color: var(--text);
+}
+
+.app-step__text {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.62;
+}
+
+.app-step__figure {
+  margin: 0;
+  justify-self: center;
+  width: 100%;
+  max-width: min(300px, 86vw);
+}
+
+.app-step__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 2.35rem;
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.38);
+}
+
+@media (min-width: 820px) {
+  .app-step {
+    grid-template-columns: minmax(0, 1fr) min(300px, 34vw);
+    gap: 2rem 2.5rem;
+    align-items: center;
+  }
+
+  .app-step__figure {
+    justify-self: end;
+    max-width: min(318px, 34vw);
+  }
+}
+
+/* —— Tape showcase (stacked scout moment) —— */
 .tape-showcase {
-  --notif: 0;
   overflow-x: clip;
+}
+
+.tape-showcase--scout {
+  --tape-club: 0;
+  --tape-alert: 0;
 }
 
 .tape-showcase__visual {
   margin-top: 0.25rem;
 }
 
-.tape-showcase__stage {
+.tape-showcase__stage.tape-scout-stack {
   position: relative;
   width: 100%;
   max-width: min(348px, 92vw);
   margin-inline: auto;
+  line-height: 0;
 }
 
-.tape-phone {
+.tape-scout-base {
+  position: relative;
+  z-index: 1;
   margin: 0;
 }
 
@@ -526,29 +611,57 @@ section {
   border-radius: 2.35rem;
 }
 
-.tape-notif {
+.tape-scout-club {
   position: absolute;
+  left: 0;
+  top: 0;
   z-index: 2;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.tape-scout-club .tape-phone__img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  border-radius: 2.35rem;
+  box-shadow: -10px 18px 36px rgba(0, 0, 0, 0.5);
+  opacity: var(--tape-club, 0);
+  transform: translate(
+      calc((1 - var(--tape-club, 0)) * 46% + var(--tape-club, 0) * 11%),
+      calc((1 - var(--tape-club, 0)) * 36% + var(--tape-club, 0) * 8%)
+    )
+    scale(calc(0.94 + 0.06 * var(--tape-club, 0)));
+}
+
+.tape-scout-alert {
+  position: absolute;
+  z-index: 3;
   top: 5.5%;
   right: max(-8%, -0.95rem);
   width: min(256px, 88vw);
   pointer-events: none;
   filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.5));
-  transform: translate3d(calc((1 - var(--notif, 0)) * min(96vw, 480px)), 0, 0);
+  transform: translate3d(calc((1 - var(--tape-alert, 0)) * min(96vw, 480px)), 0, 0);
 }
 
-.tape-notif__img {
+.tape-scout-alert__img {
   display: block;
   width: 100%;
   height: auto;
 }
 
 @media (min-width: 900px) {
-  .tape-showcase__stage {
+  .tape-showcase__stage.tape-scout-stack {
     max-width: min(368px, 36vw);
   }
 
-  .tape-notif {
+  .tape-scout-alert {
     width: min(276px, 30vw);
     right: max(-10%, -1.15rem);
   }
