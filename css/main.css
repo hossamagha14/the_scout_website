@@ -588,6 +588,10 @@ section {
 
 .tape-showcase__visual {
   margin-top: 0.25rem;
+  padding: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
 }
 
 .tape-showcase__stage.tape-scout-stack {
@@ -630,7 +634,6 @@ section {
   height: auto;
   max-width: 100%;
   border-radius: 2.35rem;
-  box-shadow: -10px 18px 36px rgba(0, 0, 0, 0.5);
   opacity: var(--tape-club, 0);
   transform: translate(
       calc((1 - var(--tape-club, 0)) * 46% + var(--tape-club, 0) * 11%),
@@ -642,12 +645,13 @@ section {
 .tape-scout-alert {
   position: absolute;
   z-index: 3;
-  top: 5.5%;
-  right: max(-8%, -0.95rem);
-  width: min(256px, 88vw);
+  left: 50%;
+  top: auto;
+  bottom: clamp(10%, 12vh, 21%);
+  width: min(268px, 88%);
+  max-width: calc(100% - 0.75rem);
   pointer-events: none;
-  filter: drop-shadow(0 16px 32px rgba(0, 0, 0, 0.5));
-  transform: translate3d(calc((1 - var(--tape-alert, 0)) * min(96vw, 480px)), 0, 0);
+  transform: translateX(calc(-50% + (1 - var(--tape-alert, 0)) * min(92vw, 420px)));
 }
 
 .tape-scout-alert__img {
@@ -662,8 +666,8 @@ section {
   }
 
   .tape-scout-alert {
-    width: min(276px, 30vw);
-    right: max(-10%, -1.15rem);
+    width: min(292px, 82%);
+    bottom: clamp(11%, 11vh, 19%);
   }
 }
 

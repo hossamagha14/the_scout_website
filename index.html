@@ -15,7 +15,7 @@
     />
     <meta property="og:type" content="website" />
     <link rel="icon" type="image/svg+xml" href="assets/brand/icon_s_green.svg" />
-    <link rel="stylesheet" href="css/main.css?v=steps-scout-stack" />
+    <link rel="stylesheet" href="css/main.css?v=tape-alert-lower" />
     <script>
       document.documentElement.classList.add("js");
     </script>
@@ -447,13 +447,13 @@
           const r = tape.getBoundingClientRect();
           const top = r.top;
           const h = Math.max(r.height, vh * 0.35);
-          const uStart = vh * 0.88;
-          const uEnd = -h * 0.32;
-          const span = Math.max(180, uStart - uEnd);
+          const uStart = vh * 0.96;
+          const uEnd = -h * 0.4;
+          const span = Math.max(200, uStart - uEnd);
           let u = (uStart - top) / span;
           u = Math.min(1, Math.max(0, u));
-          const club = Math.min(1, Math.max(0, (u - 0.04) / 0.36));
-          const alert = Math.min(1, Math.max(0, (u - 0.34) / 0.44));
+          const club = Math.min(1, Math.max(0, (u - 0.14) / 0.32));
+          const alert = Math.min(1, Math.max(0, (u - 0.46) / 0.38));
           tape.style.setProperty("--tape-club", String(Math.pow(club, 0.94)));
           tape.style.setProperty("--tape-alert", String(Math.pow(alert, 0.92)));
         };
