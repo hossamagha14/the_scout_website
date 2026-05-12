@@ -648,19 +648,12 @@ section {
   left: auto;
   right: max(0.55%, 0.08rem);
   top: auto;
-  bottom: max(0.55%, 0.18rem);
+  bottom: 0;
   width: min(268px, 78%);
   max-width: calc(100% - 0.85rem);
   pointer-events: none;
-  /*
-    Rest: lower-right on the club mockup.
-    Motion: starts offset up-left, eases to translate(0,0) → down + right.
-    Use -1 * … not * -min() (invalid in many engines).
-  */
-  transform: translate(
-    calc(-1 * (1 - var(--tape-alert, 0)) * min(76px, 19vw)),
-    calc(-1 * (1 - var(--tape-alert, 0)) * min(104px, 20vh))
-  );
+  /* Enters from the right (positive X), settles left into rest position as --tape-alert → 1 */
+  transform: translateX(calc((1 - var(--tape-alert, 0)) * min(95vw, 320px)));
 }
 
 .tape-scout-alert__img {
@@ -677,11 +670,8 @@ section {
   .tape-scout-alert {
     width: min(292px, 72%);
     right: max(0.45%, 0.06rem);
-    bottom: max(0.45%, 0.14rem);
-    transform: translate(
-      calc(-1 * (1 - var(--tape-alert, 0)) * min(84px, 15vw)),
-      calc(-1 * (1 - var(--tape-alert, 0)) * min(118px, 18vh))
-    );
+    bottom: 0;
+    transform: translateX(calc((1 - var(--tape-alert, 0)) * min(90vw, 340px)));
   }
 }
 
