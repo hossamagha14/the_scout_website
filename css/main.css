@@ -652,8 +652,11 @@ section {
   width: min(268px, 78%);
   max-width: calc(100% - 0.85rem);
   pointer-events: none;
-  /* Enters from the right (positive X), settles left into rest position as --tape-alert → 1 */
-  transform: translateX(calc((1 - var(--tape-alert, 0)) * min(95vw, 320px)));
+  /* Slide R→L; +2px right and +10px down vs previous rest (single translate). */
+  transform: translate(
+    calc(2px + (1 - var(--tape-alert, 0)) * min(95vw, 320px)),
+    10px
+  );
 }
 
 .tape-scout-alert__img {
@@ -671,7 +674,10 @@ section {
     width: min(292px, 72%);
     right: max(0.45%, 0.06rem);
     bottom: 0;
-    transform: translateX(calc((1 - var(--tape-alert, 0)) * min(90vw, 340px)));
+    transform: translate(
+      calc(2px + (1 - var(--tape-alert, 0)) * min(90vw, 340px)),
+      10px
+    );
   }
 }
 
