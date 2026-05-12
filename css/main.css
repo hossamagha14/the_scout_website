@@ -552,7 +552,7 @@ section {
   margin: 0;
   justify-self: center;
   width: 100%;
-  max-width: min(300px, 86vw);
+  max-width: min(390px, 86vw);
 }
 
 .app-step__img {
@@ -565,14 +565,14 @@ section {
 
 @media (min-width: 820px) {
   .app-step {
-    grid-template-columns: minmax(0, 1fr) min(300px, 34vw);
+    grid-template-columns: minmax(0, 1fr) min(390px, 44vw);
     gap: 2rem 2.5rem;
     align-items: center;
   }
 
   .app-step__figure {
     justify-self: end;
-    max-width: min(318px, 34vw);
+    max-width: min(413px, 44vw);
   }
 }
 
