@@ -1009,6 +1009,50 @@ footer {
   color: var(--text-muted);
 }
 
+.social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.social__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.05rem;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--text);
+  text-decoration: none;
+  background: var(--surface-2);
+  border: 1px solid rgba(94, 94, 94, 0.45);
+  border-radius: 9999px;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.social__btn:hover {
+  border-color: rgba(45, 239, 129, 0.55);
+  color: var(--accent);
+  background: rgba(45, 239, 129, 0.1);
+  text-decoration: none;
+}
+
+.social__btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.social__icon {
+  flex-shrink: 0;
+}
+
 footer .row {
   display: flex;
   flex-wrap: wrap;
