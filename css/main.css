@@ -1053,6 +1053,10 @@ footer {
   flex-shrink: 0;
 }
 
+.social__icon--stroke {
+  display: block;
+}
+
 footer .row {
   display: flex;
   flex-wrap: wrap;
